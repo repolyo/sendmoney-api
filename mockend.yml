@@ -1,0 +1,22 @@
+models:
+  User:
+    hasMany: [Transaction]
+    fake:
+      _count: 5
+      name: fullName
+      email: email
+      password: { string: [8, 16] }
+      balance: { int: [100, 10000] }
+
+  Transaction:
+    belongsTo: [User]  # Sender
+    fake:
+      _count: 50
+      type: { oneOfString: [credit, debit] }
+      amount: { float: [1.00, 1000.00, 2] }
+      currency: { oneOfString: [PHP, USD, EUR] }
+      note: { loremWords: [3, 10] }
+      status: { oneOfString: [pending, completed, failed] }
+      createdAt: { dateTime: [2020-01-01T00:00:00Z, 2025-12-31T23:59:59Z] }
+      recipientId: { int: [1, 5] }  # Assuming 5 users
+
