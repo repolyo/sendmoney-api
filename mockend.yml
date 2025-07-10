@@ -27,7 +27,7 @@ models:
     fake:
       _count: 300
       amount: { float: [1.00, 10000.00] }
-      description: { loremSentences: [1, 3] }
+      description: { loremWords: [5, 20] }
       status: { oneOfString: [pending, completed, failed] }
       recipientId: { int: [1, 20] }
       createdAt: { dateTime: [2015-01-01T00:00:00Z, 2025-01-01T00:00:00Z] }
